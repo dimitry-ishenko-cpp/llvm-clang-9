@@ -22,25 +22,25 @@ VENDOR=$(shell lsb_release -is)
 	dh $@ -Dllvm
 
 override_dh_auto_configure:
-	dh_auto_configure -Scmake --       \
-		-DCLANG_BUILD_EXAMPLES=OFF     \
-		-DCLANG_VENDOR=$(VENDOR)       \
+	dh_auto_configure -Scmake --     \
+		-DCLANG_BUILD_EXAMPLES=OFF   \
+		-DCLANG_VENDOR=$(VENDOR)     \
 		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 		-DCMAKE_INSTALL_PREFIX=/usr/lib/llvm-9 \
-		-DENABLE_LINKER_BUILD_ID=ON    \
+		-DENABLE_LINKER_BUILD_ID=ON  \
 		-DLIBCLANG_LIBRARY_VERSION=$(SONAME_SUFFIX) \
-		-DLLVM_BUILD_DOCS=ON           \
-		-DLLVM_BUILD_LLVM_DYLIB=ON     \
-		-DLLVM_ENABLE_FFI=ON           \
-		-DLLVM_ENABLE_PROJECTS=clang   \
-		-DLLVM_ENABLE_RTTI=ON          \
-		-DLLVM_ENABLE_SPHINX=ON        \
-		-DLLVM_ENABLE_Z3_SOLVER=ON     \
-		-DLLVM_INSTALL_UTILS=ON        \
-		-DLLVM_LINK_LLVM_DYLIB=ON      \
-		-DLLVM_VERSION_SUFFIX=         \
-	   	-DSPHINX_OUTPUT_HTML=OFF       \
-	   	-DSPHINX_OUTPUT_MAN=ON         \
+		-DLLVM_BUILD_DOCS=ON         \
+		-DLLVM_BUILD_LLVM_DYLIB=ON   \
+		-DLLVM_ENABLE_FFI=ON         \
+		-DLLVM_ENABLE_PROJECTS=clang \
+		-DLLVM_ENABLE_RTTI=ON        \
+		-DLLVM_ENABLE_SPHINX=ON      \
+		-DLLVM_ENABLE_Z3_SOLVER=ON   \
+		-DLLVM_INSTALL_UTILS=ON      \
+		-DLLVM_LINK_LLVM_DYLIB=ON    \
+		-DLLVM_VERSION_SUFFIX=       \
+		-DSPHINX_OUTPUT_HTML=OFF     \
+		-DSPHINX_OUTPUT_MAN=ON       \
 		-DSPHINX_WARNINGS_AS_ERRORS=OFF
 
 override_dh_auto_test:
