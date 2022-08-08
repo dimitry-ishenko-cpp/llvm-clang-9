@@ -4,6 +4,9 @@ llvm/0002-Add-1-after-so.patch
 clang/0001-Add-soname.patch
 
 # cling patches
+llvm/1001-Make-datamember-protected.patch
+llvm/1002-Add-DF_1_PIE-Backport-https-reviews.llvm.org-D80871.patch
+
 clang/1001-Temporary-parsers-should-not-manipulate-global-parse.patch
 clang/1002-Only-reset-extra-parsers-if-not-temporary.patch
 clang/1003-Let-autoload-act-on-fwd-declares.patch
