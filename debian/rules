@@ -6,11 +6,14 @@ export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-GCC_VER=$(shell dpkg-query -f '$${Depends}' -W gcc | grep -o 'gcc-[0-9]\+' | tail -n1)
-LIBGCC_VER=$(shell dpkg-query -f '$${Depends}' -W $(GCC_VER) | grep -o 'libgcc-[0-9]\+-dev' | tail -n1)
+GCC_VER = $(shell dpkg-query -f '$${Depends}' -W gcc | grep -o 'gcc-[0-9]\+' | tail -n1)
+LIBGCC_VER = $(shell dpkg-query -f '$${Depends}' -W $(GCC_VER) | grep -o 'libgcc-[0-9]\+-dev' | tail -n1)
 
-GXX_VER=$(shell dpkg-query -f '$${Depends}' -W g++ | grep -o 'g++-[0-9]\+' | tail -n1)
-LIBSTDCXX_VER=$(shell dpkg-query -f '$${Depends}' -W $(GXX_VER) | grep -o 'libstdc++-[0-9]\+-dev' | tail -n1)
+GXX_VER = $(shell dpkg-query -f '$${Depends}' -W g++ | grep -o 'g++-[0-9]\+' | tail -n1)
+LIBSTDCXX_VER = $(shell dpkg-query -f '$${Depends}' -W $(GXX_VER) | grep -o 'libstdc++-[0-9]\+-dev' | tail -n1)
+
+GOBJC_VER = $(shell dpkg-query -f '$${Depends}' -W gobjc | grep -o 'gobjc-[0-9]\+' | tail -n1)
+LIBOBJC_VER = $(shell dpkg-query -f '$${Depends}' -W $(GOBJC_VER) | grep -o 'libobjc-[0-9]\+-dev' | tail -n1)
 
 SONAME_SUFFIX := 1 # added to .so
 VENDOR=$(shell lsb_release -is)
@@ -61,4 +64,4 @@ override_dh_dwz:
 	dh_dwz -- -L 200000000
 
 override_dh_gencontrol:
-	dh_gencontrol -- -Vdep:devlibs="$(LIBGCC_VER), $(LIBSTDCXX_VER)"
+	dh_gencontrol -- -Vdep:devlibs="$(LIBGCC_VER), $(LIBSTDCXX_VER), $(LIBOBJC_VER)"
