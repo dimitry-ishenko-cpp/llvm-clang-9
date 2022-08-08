@@ -128,6 +128,22 @@ Description: C, C++ and Objective-C compiler
  Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
  provides most of the support for C++17.
 
+Package: clang-tools-9
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ clang-9 (= ${binary:Version}),
+ python3
+Description: clang-based tools for C/C++ developments
+ Clang project is a C, C++, Objective C and Objective C++ front-end based on
+ the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+ Collection (GCC).
+ .
+ Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+ provides most of the support of C++17.
+ .
+ This package contains several clang-based tools such as scan-build, clang-cl,
+ etc.
+
 ##########
 # llvm
 Package: libllvm9
