@@ -1,0 +1,211 @@
+Source: llvm-clang-9
+Section: devel
+Priority: optional
+Maintainer: Dimitry Ishenko <dimitry.ishenko@gmail.com>
+Build-Depends: debhelper-compat (= 13),
+ cmake,
+ dh-exec,
+ libffi-dev,
+ libz3-dev,
+ lsb-release,
+ python3-sphinx
+Standards-Version: 4.6.0
+Homepage: https://www.llvm.org/
+Vcs-Browser: https://salsa.debian.org/dimitry-ishenko/llvm-9
+Vcs-Git: https://salsa.debian.org/dimitry-ishenko/llvm-9.git
+Rules-Requires-Root: no
+
+#####################
+## clang
+Package: clang-9
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${dep:devlibs},
+ binutils,
+ libc6-dev,
+ libclang-common-9-dev (= ${binary:Version}),
+ libclang-cpp9 (= ${binary:Version})
+Provides: c-compiler, objc-compiler, c++-compiler
+Description: C, C++ and Objective-C compiler
+ Clang project is a C, C++, Objective C and Objective C++ front-end based on
+ the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+ Collection (GCC).
+ .
+ Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+ provides most of the support for C++17.
+
+Package: libclang1-9
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: C interface to the Clang library
+ Clang project is a C, C++, Objective C and Objective C++ front-end based on
+ the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+ Collection (GCC).
+ .
+ Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+ provides most of the support for C++17.
+ .
+ This package contains the Clang library.
+ .
+ The C Interface to Clang provides a relatively small API that exposes
+ facilities for parsing source code into an abstract syntax tree (AST), loading
+ already-parsed ASTs, traversing the AST, associating physical source locations
+ with elements within the AST, and other facilities that support Clang-based
+ development tools.
+
+Package: libclang-9-dev
+Section: libdevel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${dep:devlibs},
+ libclang-common-9-dev (= ${binary:Version}),
+ libclang1-9 (= ${binary:Version})
+Description: Clang library - Development package
+ Clang project is a C, C++, Objective C and Objective C++ front-end based on
+ the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+ Collection (GCC).
+ .
+ Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+ provides most of the support for C++17.
+ .
+ This package contains the Clang headers needed to develop extensions over
+ libclang1-9.
+
+Package: libclang-common-9-dev
+Section: libdevel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libllvm9 (= ${binary:Version})
+Description: Clang library - Common development package
+ Clang project is a C, C++, Objective C and Objective C++ front-end based on
+ the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+ Collection (GCC).
+ .
+ Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+ provides most of the support for C++17.
+ .
+ This package contains the Clang generic headers and some libraries.
+
+Package: libclang-cpp9
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libllvm9 (= ${binary:Version})
+Description: C++ interface to the Clang library
+ Clang project is a C, C++, Objective C and Objective C++ front-end based on
+ the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+ Collection (GCC).
+ .
+ Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+ provides most of the support for C++17.
+ .
+ This package contains the Clang C++ library.
+ .
+ The C++ Interface to Clang provides an API that exposes facilities for parsing
+ source code into an abstract syntax tree (AST), loading already-parsed ASTs,
+ traversing the AST, associating physical source locations with elements within
+ the AST, and other facilities that support Clang-based development tools.
+
+Package: libclang-cpp9-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${dep:devlibs},
+ libclang-cpp9 (= ${binary:Version})
+Description: C++ interface to the Clang library
+ Clang project is a C, C++, Objective C and Objective C++ front-end based on
+ the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+ Collection (GCC).
+ .
+ Clang implements all of the ISO C++ 1998, 11, and 14 standards and also
+ provides most of the support for C++17.
+ .
+ This package contains the Clang C++ library.
+ .
+ The C++ Interface to Clang provides an API that exposes facilities for parsing
+ source code into an abstract syntax tree (AST), loading already-parsed ASTs,
+ traversing the AST, associating physical source locations with elements within
+ the AST, and other facilities that support Clang-based development tools.
+ .
+ This package contains symlinks without a version number needed by the linker
+ at build time.
+
+##########
+# llvm
+Package: libllvm9
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Modular compiler and toolchain technologies, runtime library
+ LLVM is a collection of libraries and tools that make it easy to build
+ compilers, optimizers, just-in-time code generators, and many other
+ compiler-related programs.
+ .
+ This package contains the LLVM runtime library.
+
+Package: llvm-9-runtime
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ binfmt-support
+Description: Modular compiler and toolchain technologies, IR interpreter
+ LLVM is a collection of libraries and tools that make it easy to build
+ compilers, optimizers, just-in-time code generators, and many other
+ compiler-related programs.
+ .
+ LLVM uses a single, language-independent virtual instruction set both as an
+ offline code representation (to communicate code between compiler phases and
+ to run-time systems) and as the compiler internal representation (to analyze
+ and transform programs). This persistent code representation allows a common
+ set of sophisticated compiler techniques to be applied at compile-time,
+ link-time, install-time, run-time, or "idle-time" (between program runs).
+ .
+ This package contains minimum set of tools required to execute programs in
+ LLVM format.
+
+Package: llvm-9
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+ llvm-9-runtime (= ${binary:Version})
+Recommends: llvm-9-dev
+Description: Modular compiler and toolchain technologies
+ LLVM is a collection of libraries and tools that make it easy to build
+ compilers, optimizers, just-in-time code generators, and many other
+ compiler-related programs.
+ .
+ LLVM uses a single, language-independent virtual instruction set both as an
+ offline code representation (to communicate code between compiler phases and
+ to run-time systems) and as the compiler internal representation (to analyze
+ and transform programs). This persistent code representation allows a common
+ set of sophisticated compiler techniques to be applied at compile-time,
+ link-time, install-time, run-time, or "idle-time" (between program runs).
+ .
+ The strengths of the LLVM infrastructure are its extremely simple design
+ (which makes it easy to understand and use), source-language independence,
+ powerful mid-level optimizer, automated compiler debugging support,
+ extensibility, and its stability and reliability. LLVM is currently being used
+ to host a wide variety of academic research projects and commercial projects.
+ LLVM includes C and C++ front-ends, a front-end for a Forth-like language
+ (Stacker), a young scheme front-end, and Java support is in development. LLVM
+ can generate code for X96, SparcV9, PowerPC or many other architectures.
+
+Package: llvm-9-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libclang-cpp9 (= ${binary:Version}), 
+ libffi-dev (>= 3.0.9), 
+ libllvm9 (= ${binary:Version}),
+ libtinfo-dev,
+ libz3-dev,
+ llvm-9 (= ${binary:Version})
+Description: Modular compiler and toolchain technologies, libraries and headers
+ LLVM is a collection of libraries and tools that make it easy to build
+ compilers, optimizers, just-in-time code generators, and many other
+ compiler-related programs.
+ .
+ LLVM uses a single, language-independent virtual instruction set both as an
+ offline code representation (to communicate code between compiler phases and
+ to run-time systems) and as the compiler internal representation (to analyze
+ and transform programs). This persistent code representation allows a common
+ set of sophisticated compiler techniques to be applied at compile-time,
+ link-time, install-time, run-time, or "idle-time" (between program runs).
+ .
+ This package contains libraries and headers needed to develop applications
+ using LLVM.

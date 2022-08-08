@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "remove" ]; then
+    if [ -x /usr/sbin/update-binfmts ]; then
+        update-binfmts --package llvm-9-runtime --remove llvm-9-runtime.binfmt /usr/bin/lli-9 || true
+        if [ -f /var/lib/binfmts/llvm-9.binfmt ]; then
+            update-binfmts --package llvm-9-runtime --remove llvm-9.binfmt /usr/bin/lli-9 || true
+        fi
+    fi
+fi
+
+#DEBHELPER#
+

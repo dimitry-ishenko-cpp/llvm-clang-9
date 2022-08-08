@@ -1,0 +1,34 @@
+#!/usr/bin/dh-exec
+
+usr/lib/llvm-9/include/llvm/
+usr/lib/llvm-9/include/llvm-c/
+
+usr/lib/llvm-9/lib/libLLVM*.a
+
+usr/lib/llvm-9/lib/libLLVM.so
+usr/lib/llvm-9/lib/libLLVM-9.so
+usr/lib/llvm-9/lib/libLLVM-9.0.1.so
+
+usr/lib/llvm-9/lib/libLTO.*
+usr/lib/llvm-9/lib/libRemarks.*
+
+usr/lib/llvm-9/lib/cmake/llvm/*.cmake
+
+# vim
+llvm/utils/vim/indent/llvm.vim => usr/share/vim/addons/indent/llvm-9.vim
+
+llvm/utils/vim/syntax/llvm.vim => usr/share/vim/addons/syntax/llvm-9.vim
+llvm/utils/vim/syntax/tablegen.vim => usr/share/vim/addons/syntax/tablegen-9.vim
+
+llvm/utils/vim/ftdetect/llvm.vim => usr/share/vim/addons/ftdetect/llvm-9.vim
+llvm/utils/vim/ftdetect/tablegen.vim => usr/share/vim/addons/ftdetect/tablegen-9.vim
+
+llvm/utils/vim/ftplugin/llvm.vim => usr/share/vim/addons/ftplugin/llvm-9.vim
+llvm/utils/vim/ftplugin/tablegen.vim => usr/share/vim/addons/ftplugin/tablegen-9.vim
+
+llvm/utils/vim/vimrc => usr/share/vim/addons/llvm-9-vimrc
+
+# emacs
+llvm/utils/emacs/emacs.el usr/share/emacs/site-lisp/llvm-9/
+llvm/utils/emacs/llvm-mode.el usr/share/emacs/site-lisp/llvm-9/
+llvm/utils/emacs/tablegen-mode.el usr/share/emacs/site-lisp/llvm-9/

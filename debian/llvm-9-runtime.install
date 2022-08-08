@@ -1,0 +1,7 @@
+usr/lib/llvm-9/bin/lli
+usr/lib/llvm-9/bin/lli-child-target
+
+usr/bin/lli-9
+usr/bin/lli-child-target-9
+
+debian/llvm-9-runtime.binfmt usr/share/binfmts/

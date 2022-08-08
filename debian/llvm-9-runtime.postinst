@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "configure" ]; then
+    if [ -x /usr/sbin/update-binfmts ]; then
+        update-binfmts --import llvm-9-runtime.binfmt || true
+    fi
+fi
+
+#DEBHELPER#

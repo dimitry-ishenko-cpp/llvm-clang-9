@@ -1,0 +1,5 @@
+usr/lib/llvm-9/share/man/man1/bugpoint-9.1
+usr/lib/llvm-9/share/man/man1/dsymutil-9.1
+usr/lib/llvm-9/share/man/man1/llc-9.1
+usr/lib/llvm-9/share/man/man1/llvm-*-9.1
+usr/lib/llvm-9/share/man/man1/opt-9.1

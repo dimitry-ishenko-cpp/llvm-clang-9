@@ -1,0 +1,2 @@
+usr/lib/llvm-9/lib/libclang-cpp.so.9 usr/lib/llvm-9/lib/libclang-cpp9.so
+usr/lib/${DEB_HOST_MULTIARCH}/libclang-cpp.so.9 usr/lib/${DEB_HOST_MULTIARCH}/libclang-cpp9.so 

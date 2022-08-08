@@ -1,0 +1,3 @@
+usr/lib/llvm-9/bin/clang usr/lib/llvm-9/bin/clang-9
+usr/lib/llvm-9/lib/cmake/clang usr/lib/cmake/clang-9
+usr/lib/llvm-9/share/clang/bash-autocomplete.sh usr/share/bash-completion/completions/clang-9

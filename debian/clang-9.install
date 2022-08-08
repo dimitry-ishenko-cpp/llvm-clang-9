@@ -1,0 +1,12 @@
+#!/usr/bin/dh-exec
+
+usr/lib/llvm-9/bin/clang-9 => usr/lib/llvm-9/bin/clang
+usr/lib/llvm-9/bin/clang++
+usr/lib/llvm-9/bin/clang-cpp
+
+usr/bin/clang-9
+usr/bin/clang++-9
+usr/bin/clang-cpp-9
+
+usr/lib/llvm-9/lib/cmake/clang/*.cmake
+usr/lib/llvm-9/share/clang/bash-autocomplete.sh

@@ -1,0 +1,5 @@
+usr/lib/llvm-9/include/llvm-c usr/include/llvm-c-9/llvm-c
+usr/lib/llvm-9/include/llvm usr/include/llvm-9/llvm
+
+usr/lib/llvm-9/lib/cmake/llvm usr/lib/llvm-9/cmake
+usr/lib/llvm-9/lib/cmake/llvm usr/lib/llvm-9/share/llvm/cmake

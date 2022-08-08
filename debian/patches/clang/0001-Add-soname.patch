@@ -1,0 +1,11 @@
+--- a/clang/tools/libclang/CMakeLists.txt
++++ b/clang/tools/libclang/CMakeLists.txt
+@@ -94,7 +94,7 @@ if (UNIX AND ${CMAKE_SYSTEM_NAME} MATCHE
+     remove_definitions("-D_XOPEN_SOURCE=700")
+ endif()
+ 
+-add_clang_library(libclang ${ENABLE_SHARED} ${ENABLE_STATIC} INSTALL_WITH_TOOLCHAIN
++add_clang_library(libclang ${ENABLE_SHARED} ${ENABLE_STATIC} INSTALL_WITH_TOOLCHAIN SONAME
+   OUTPUT_NAME ${output_name}
+   ${SOURCES}
+   DEPENDS clang-resource-headers
