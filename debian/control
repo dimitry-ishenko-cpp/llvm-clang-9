@@ -214,7 +214,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
  libllvm9 (= ${binary:Version}),
  libtinfo-dev,
  libz3-dev,
- llvm-9 (= ${binary:Version})
+ llvm-9 (= ${binary:Version}),
+ llvm-9-tools (= ${binary:Version})
 Description: Modular compiler and toolchain technologies, libraries and headers
  LLVM is a collection of libraries and tools that make it easy to build
  compilers, optimizers, just-in-time code generators, and many other
