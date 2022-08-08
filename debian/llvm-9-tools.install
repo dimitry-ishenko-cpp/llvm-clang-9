@@ -1,0 +1,16 @@
+usr/lib/llvm-9/bin/count
+usr/lib/llvm-9/bin/FileCheck
+usr/lib/llvm-9/bin/not
+usr/lib/llvm-9/bin/yaml-bench
+
+usr/bin/count-9
+usr/bin/FileCheck-9
+usr/bin/not-9
+usr/bin/yaml-bench-9
+
+usr/lib/llvm-9/share/opt-viewer/opt-diff.py
+usr/lib/llvm-9/share/opt-viewer/opt-stats.py
+usr/lib/llvm-9/share/opt-viewer/opt-viewer.py
+usr/lib/llvm-9/share/opt-viewer/optpmap.py
+usr/lib/llvm-9/share/opt-viewer/optrecord.py
+usr/lib/llvm-9/share/opt-viewer/style.css

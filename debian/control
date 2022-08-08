@@ -186,6 +186,26 @@ Description: Modular compiler and toolchain technologies
  (Stacker), a young scheme front-end, and Java support is in development. LLVM
  can generate code for X96, SparcV9, PowerPC or many other architectures.
 
+Package: llvm-9-tools
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ python3,
+ python3-pygments,
+ python3-yaml
+Description: Modular compiler and toolchain technologies, tools
+ LLVM is a collection of libraries and tools that make it easy to build
+ compilers, optimizers, just-in-time code generators, and many other
+ compiler-related programs.
+ .
+ LLVM uses a single, language-independent virtual instruction set both as an
+ offline code representation (to communicate code between compiler phases and
+ to run-time systems) and as the compiler internal representation (to analyze
+ and transform programs). This persistent code representation allows a common
+ set of sophisticated compiler techniques to be applied at compile-time,
+ link-time, install-time, run-time, or "idle-time" (between program runs).
+ .
+ This package provides tools for testing.
+
 Package: llvm-9-dev
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
