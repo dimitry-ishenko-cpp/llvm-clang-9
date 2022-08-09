@@ -1,4 +1,4 @@
-llvm-clang-9 (2:9.0.1-0ppa1) unstable; urgency=medium
+llvm-clang-9 (2:9.0.1-0ppa1~ubuntu22.04) jammy; urgency=medium
 
   * Import existing files
   * Add dependency on libobjc-*-dev
