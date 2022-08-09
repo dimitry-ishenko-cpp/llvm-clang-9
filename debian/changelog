@@ -1,0 +1,16 @@
+llvm-clang-9 (2:9.0.1-0ppa1) unstable; urgency=medium
+
+  * Import existing files
+  * Add dependency on libobjc-*-dev
+  * Add llvm-9-tools
+  * Reorder cling patches for clang
+  * Add cling patches for llvm
+  * Reorder packages
+  * llvm-9-dev: depend on llvm-9-tools
+  * rules: whitespace
+  * Add clang-tools-9
+  * Add 1002-Fix-the-compilation.patch for llvm
+  * Update README.md
+  * Create FUNDING.yml
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Mon, 08 Aug 2022 17:44:51 -0400
