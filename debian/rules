@@ -39,6 +39,7 @@ override_dh_auto_configure:
 		-DLLVM_INSTALL_UTILS=ON      \
 		-DLLVM_LINK_LLVM_DYLIB=ON    \
 		-DLLVM_PARALLEL_LINK_JOBS=1  \
+		-DLLVM_USE_LINKER=gold       \
 		-DLLVM_VERSION_SUFFIX=       \
 		-DSPHINX_OUTPUT_HTML=OFF     \
 		-DSPHINX_OUTPUT_MAN=ON       \
