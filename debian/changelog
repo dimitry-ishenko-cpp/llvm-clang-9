@@ -1,4 +1,14 @@
-llvm-clang-9 (2:9.0.1-0ppa1~ubuntu22.04) jammy; urgency=medium
+llvm-clang-9 (2:9.0.1-0ppa2) unstable; urgency=medium
+
+  * Limit link jobs to 1
+  * Use gold linker
+  * rules: tweak
+  * Add .gitignore
+  * Reduce build size
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Wed, 10 Aug 2022 16:36:26 -0400
+
+llvm-clang-9 (2:9.0.1-0ppa1) unstable; urgency=medium
 
   * Import existing files
   * Add dependency on libobjc-*-dev

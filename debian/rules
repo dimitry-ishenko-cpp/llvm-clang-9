@@ -1,9 +1,9 @@
 #!/usr/bin/make -f
-export DH_VERBOSE = 1
 
+export DH_VERBOSE = 1
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
-export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
-export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+export DEB_CFLAGS_MAINT_APPEND = -Wall -pedantic -g1
+export DEB_CXXFLAGS_MAINT_APPEND = -Wall -pedantic -g1
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 GCC_VER = $(shell dpkg-query -f '$${Depends}' -W gcc | grep -o 'gcc-[0-9]\+' | tail -n1)
@@ -15,8 +15,7 @@ LIBSTDCXX_VER = $(shell dpkg-query -f '$${Depends}' -W $(GXX_VER) | grep -o 'lib
 GOBJC_VER = $(shell dpkg-query -f '$${Depends}' -W gobjc | grep -o 'gobjc-[0-9]\+' | tail -n1)
 LIBOBJC_VER = $(shell dpkg-query -f '$${Depends}' -W $(GOBJC_VER) | grep -o 'libobjc-[0-9]\+-dev' | tail -n1)
 
-SONAME_SUFFIX := 1 # added to .so
-VENDOR=$(shell lsb_release -is)
+VENDOR = $(shell lsb_release -is)
 
 %:
 	dh $@ -Dllvm
@@ -25,10 +24,10 @@ override_dh_auto_configure:
 	dh_auto_configure -Scmake --     \
 		-DCLANG_BUILD_EXAMPLES=OFF   \
 		-DCLANG_VENDOR=$(VENDOR)     \
-		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DCMAKE_BUILD_TYPE=Release   \
 		-DCMAKE_INSTALL_PREFIX=/usr/lib/llvm-9 \
 		-DENABLE_LINKER_BUILD_ID=ON  \
-		-DLIBCLANG_LIBRARY_VERSION=$(SONAME_SUFFIX) \
+		-DLIBCLANG_LIBRARY_VERSION=1 \
 		-DLLVM_BUILD_DOCS=ON         \
 		-DLLVM_BUILD_LLVM_DYLIB=ON   \
 		-DLLVM_ENABLE_FFI=ON         \
@@ -38,6 +37,8 @@ override_dh_auto_configure:
 		-DLLVM_ENABLE_Z3_SOLVER=ON   \
 		-DLLVM_INSTALL_UTILS=ON      \
 		-DLLVM_LINK_LLVM_DYLIB=ON    \
+		-DLLVM_PARALLEL_LINK_JOBS=1  \
+		-DLLVM_USE_LINKER=gold       \
 		-DLLVM_VERSION_SUFFIX=       \
 		-DSPHINX_OUTPUT_HTML=OFF     \
 		-DSPHINX_OUTPUT_MAN=ON       \
@@ -51,7 +52,7 @@ override_dh_auto_install:
 	# create *-9 links
 	mkdir -p debian/tmp/usr/bin;       \
 	cd debian/tmp/usr/bin;             \
-	for f in ../lib/llvm-9/bin/*; do basename $$f | grep -q -- "-9$$" || ln -s $$f $$(basename $$f)-9; done
+	for f in ../lib/llvm-9/bin/*; do echo $$f | grep -q -- "-9$$" || ln -s $$f $$(basename $$f)-9; done
 
 	# add -9 to man pages
 	cd debian/tmp/usr/lib/llvm-9/share/man/man1; \
