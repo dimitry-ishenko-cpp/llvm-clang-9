@@ -1,0 +1,2 @@
+usr/lib/llvm-9/share/clang/clang-format-diff.py usr/bin/clang-format-diff-9
+usr/lib/llvm-9/share/clang/clang-format.py usr/share/vim/addons/syntax/clang-format-9.py

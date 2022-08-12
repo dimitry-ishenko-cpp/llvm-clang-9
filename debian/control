@@ -41,7 +41,7 @@ Description: C interface to the Clang library
 Package: libclang-common-9-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${misc:Depends},
  libllvm9 (= ${binary:Version})
 Description: Clang library - Common development package
  Clang project is a C, C++, Objective C and Objective C++ front-end based on
@@ -56,7 +56,7 @@ Description: Clang library - Common development package
 Package: libclang-9-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${dep:devlibs},
+Depends: ${misc:Depends}, ${dep:devlibs},
  libclang-common-9-dev (= ${binary:Version}),
  libclang1-9 (= ${binary:Version})
 Description: Clang library - Development package
@@ -93,7 +93,7 @@ Description: C++ interface to the Clang library
 Package: libclang-cpp9-dev
 Architecture: any
 Section: libdevel
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${dep:devlibs},
+Depends: ${misc:Depends}, ${dep:devlibs},
  libclang-cpp9 (= ${binary:Version})
 Description: C++ interface to the Clang library
  Clang project is a C, C++, Objective C and Objective C++ front-end based on
@@ -131,7 +131,7 @@ Description: C, C++ and Objective-C compiler
 
 Package: clang-tools-9
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends},
  clang-9 (= ${binary:Version}),
  python3
 Description: clang-based tools for C/C++ developments
@@ -144,6 +144,21 @@ Description: clang-based tools for C/C++ developments
  .
  This package contains several clang-based tools such as scan-build, clang-cl,
  etc.
+
+Package: clang-format-9
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ python3
+Description: Tool to format C/C++/Obj-C code
+ Clang-format is both a library and a stand-alone tool with the goal of
+ automatically reformatting C++ sources files according to configurable style
+ guides. To do so, clang-format uses Clang's Lexer to transform an input file
+ into a token stream and then changes all the whitespace around those tokens.
+ The goal is for clang-format to both serve both as a user tool (ideally with
+ powerful IDE integrations) and part of other refactoring tools, e.g. to do a
+ reformatting of all the lines changed during a renaming.
+ .
+ This package also provides vim and emacs plugins.
 
 ##########
 # llvm
