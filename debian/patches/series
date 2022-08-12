@@ -1,7 +1,9 @@
 llvm/0001-Fix-compile-error.patch
 llvm/0002-Add-1-after-so.patch
+llvm/0003-llvm-cmake-resolve-symlinks-in-LLVMConfig.cmake.patch
 
 clang/0001-Add-soname.patch
+clang/0002-clang-cmake-resolve-symlinks-in-ClangConfig.cmake.patch
 
 # cling patches
 llvm/1001-Make-datamember-protected.patch

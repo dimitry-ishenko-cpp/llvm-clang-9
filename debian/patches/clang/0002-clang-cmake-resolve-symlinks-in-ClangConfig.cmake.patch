@@ -1,0 +1,15 @@
+--- a/clang/cmake/modules/CMakeLists.txt
++++ b/clang/cmake/modules/CMakeLists.txt
+@@ -30,10 +30,10 @@ set(CLANG_CONFIG_EXPORTS_FILE)
+ # Generate ClangConfig.cmake for the install tree.
+ set(CLANG_CONFIG_CODE "
+ # Compute the installation prefix from this LLVMConfig.cmake file location.
+-get_filename_component(CLANG_INSTALL_PREFIX \"\${CMAKE_CURRENT_LIST_FILE}\" PATH)")
++get_filename_component(CLANG_INSTALL_PREFIX \"\${CMAKE_CURRENT_LIST_FILE}\" REALPATH)")
+ # Construct the proper number of get_filename_component(... PATH)
+ # calls to compute the installation prefix.
+-string(REGEX REPLACE "/" ";" _count "${CLANG_INSTALL_PACKAGE_DIR}")
++string(REGEX REPLACE "/" ";" _count "prefix/${CLANG_INSTALL_PACKAGE_DIR}")
+ foreach(p ${_count})
+   set(CLANG_CONFIG_CODE "${CLANG_CONFIG_CODE}
+ get_filename_component(CLANG_INSTALL_PREFIX \"\${CLANG_INSTALL_PREFIX}\" PATH)")
