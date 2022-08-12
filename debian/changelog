@@ -1,4 +1,4 @@
-llvm-clang-9 (2:9.0.1-0ppa3) unstable; urgency=medium
+llvm-clang-9 (2:9.0.1-0ppa3~ubuntu22.04) jammy; urgency=medium
 
   * Fix .gitignore
   * Add patches for LLVMConfig.cmake and ClangConfig.cmake
