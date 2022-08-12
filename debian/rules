@@ -61,8 +61,5 @@ override_dh_auto_install:
 override_dh_missing:
 	dh_missing --list-missing
 
-override_dh_dwz:
-	dh_dwz -- -L 200000000
-
 override_dh_gencontrol:
 	dh_gencontrol -- -Vdep:devlibs="$(LIBGCC_VER), $(LIBSTDCXX_VER), $(LIBOBJC_VER)"
