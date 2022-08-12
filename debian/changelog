@@ -1,4 +1,4 @@
-llvm-clang-9 (2:9.0.1-0ppa4) unstable; urgency=medium
+llvm-clang-9 (2:9.0.1-0ppa4~ubuntu22.04) jammy; urgency=medium
 
   * clang-tools-9: add man page for diagtool-9
   * llvm-9-tools: add man page for FileCheck-9
