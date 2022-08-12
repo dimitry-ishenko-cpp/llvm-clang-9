@@ -1,3 +1,10 @@
+llvm-clang-9 (2:9.0.1-0ppa3) unstable; urgency=medium
+
+  * Fix .gitignore
+  * Add patches for LLVMConfig.cmake and ClangConfig.cmake
+
+ -- Dimitry Ishenko <dimitry.ishenko@gmail.com>  Fri, 12 Aug 2022 01:22:46 -0400
+
 llvm-clang-9 (2:9.0.1-0ppa2) unstable; urgency=medium
 
   * Limit link jobs to 1
