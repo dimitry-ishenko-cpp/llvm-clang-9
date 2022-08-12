@@ -1,0 +1,7 @@
+usr/lib/llvm-9/bin/clang-format
+usr/lib/llvm-9/bin/git-clang-format
+
+usr/bin/clang-format-9
+usr/bin/git-clang-format-9
+
+usr/lib/llvm-9/share/clang/clang-format*
