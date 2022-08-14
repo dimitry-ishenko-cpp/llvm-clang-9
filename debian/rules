@@ -50,8 +50,7 @@ override_dh_auto_install:
 	dh_auto_install
 
 	# create *-9 links
-	mkdir -p debian/tmp/usr/bin;       \
-	cd debian/tmp/usr/bin;             \
+	mkdir -p debian/tmp/usr/bin; cd debian/tmp/usr/bin; \
 	for f in ../lib/llvm-9/bin/*; do echo $$f | grep -q -- "-9$$" || ln -s $$f $$(basename $$f)-9; done
 
 	# add -9 to man pages
